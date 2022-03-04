@@ -14,10 +14,11 @@ struct NewPost: View {
     var body: some View {
         VStack {
             TextField("Enter you tweet", text: $comment)
-                .frame(width: 330, height: 65)
+                .frame(width: 320, height: 65)
                 .padding()
                 .background(Color.gray.opacity(0.5).blur(radius: 5))
                 .cornerRadius(10)
+                .shadow(radius: 10)
 
             
             Button {
@@ -36,9 +37,10 @@ struct NewPost: View {
             .background(Color.gray.opacity(0.5).blur(radius: 5))
             .cornerRadius(10)
             .padding()
+            .shadow(radius: 10)
 
         }.onAppear {
-            postEnv.getUsername()
+//            postEnv.getUsername()
         }
     }
 }
