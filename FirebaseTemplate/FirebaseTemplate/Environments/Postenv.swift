@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Pods_FirebaseTemplate
 
 class PostEnv: ObservableObject{
     let collectionName = "posts"
@@ -20,8 +21,6 @@ class PostEnv: ObservableObject{
         Networking.getSingleDocument("users/\(userid)") { user in
             self.user = user
         }
-        
-        print("😂😂😂\(self.user.username)😂😂😂")
     }
     
     func loadItems(){
@@ -31,13 +30,20 @@ class PostEnv: ObservableObject{
     }
     
     func addItem(post: Post){
-        Networking.createItem(post, inCollection: collectionName) {
+        Networking.createItem(post, inCollection: collectionName, withDocumentId: "\(post.id)") {
             self.showAlert(alertType: .success)
         } fail: { (error) in
             self.showAlert(alertType: .fail)
         }
     }
     
+    func likePost(post: Post) {
+        Networking.createItem(post, inCollection: collectionName, withDocumentId: "\(post.id)") {
+            print("you have liked the post")
+        } fail: { (error) in
+            print("❌❌❌\(error?.localizedDescription)❌❌❌") 
+        }
+    }
     
     enum ErrorMessages{
         case success, fail, none, incompleteForm
@@ -55,7 +61,7 @@ class PostEnv: ObservableObject{
         self.alertMessage = alertType.message
         self.alertShown = true
     }
-
+    
     
 }
 

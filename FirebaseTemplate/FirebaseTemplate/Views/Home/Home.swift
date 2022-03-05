@@ -35,7 +35,7 @@ struct Home: View {
                 ScrollView(showsIndicators: false) {
                     
                     ForEach(postEnv.posts) { post in
-                        PostView(post: post)
+                        PostView(post: post, env: postEnv)
                     }
                 }
                 Spacer()
@@ -62,7 +62,3 @@ struct Home: View {
 //        }
 //    }
 //}
-
-
-
-
