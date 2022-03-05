@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PostView: View {
     
@@ -18,8 +19,9 @@ struct PostView: View {
         VStack(alignment: .leading, spacing: 20) {
             
             HStack {
-                Image(post.sender.lowercased())
+                WebImage(url: URL(string: post.postImage))
                     .resizable()
+                    .placeholder(Image("pfp"))
                     .scaledToFit()
                     .frame(width: 30, height: 30)
                     .clipShape(Circle())

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 
 extension Home {
     
@@ -18,7 +18,7 @@ extension Home {
                 .bold()
                 .font(.title)
             Spacer()
-            SignOutButton(env: env)
+            
         }
     }
     
@@ -32,12 +32,17 @@ extension Home {
                     .foregroundColor(.white)
             })
             Spacer()
-            Image(postEnv.user.username.lowercased())
-                .resizable()
-                .scaledToFit()
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
-        }
+            NavigationLink(destination: Profile(env: postEnv, fireEnv: env) ,label: {
+                WebImage(url: postEnv.imageURL)
+                    .resizable()
+                    .placeholder(Image("pfp"))
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+
+            })
+
+                    }
         .font(.largeTitle)
         .padding(5)
     }

@@ -15,11 +15,28 @@ class PostEnv: ObservableObject{
     @Published var alertShown = false
     @Published var alertMessage = ErrorMessages.none.message
     @Published var user: User = User()
-    var userid = Networking.getUserId() ?? ""
+    @Published var userid = Networking.getUserId() ?? ""
+    @Published var imageURL: URL? = nil
     
     func getUser() {
         Networking.getSingleDocument("users/\(userid)") { user in
             self.user = user
+        }
+        
+        Networking.downlodImage(storagePath: "users/\(userid).png") { imageURl in
+            self.imageURL = imageURl
+        }
+    }
+    
+    func updateUser(user: User, updatedImage: UIImage?) {
+        Networking.createItem(user, inCollection: "users", withDocumentId: userid) {
+            print("user have been updated successfully")
+        }
+        
+        if let image = updatedImage {
+            Networking.uploadImage(path: "users", imageName: userid, image: image) {
+                print("profile picture have been updated successfully")
+            }
         }
     }
     
@@ -41,7 +58,7 @@ class PostEnv: ObservableObject{
         Networking.createItem(post, inCollection: collectionName, withDocumentId: "\(post.id)") {
             print("you have liked the post")
         } fail: { (error) in
-            print("❌❌❌\(error?.localizedDescription)❌❌❌") 
+            print("❌❌❌\(error?.localizedDescription)❌❌❌")
         }
         
         Networking.createItem(post, inCollection: "users/\(userid)/likedPosts", withDocumentId: "\(post.id)") {
