@@ -40,7 +40,7 @@ struct NewPost: View {
             .shadow(radius: 10)
 
         }.onAppear {
-            postEnv.getUsername()
+            postEnv.getUser()
         }
     }
 }

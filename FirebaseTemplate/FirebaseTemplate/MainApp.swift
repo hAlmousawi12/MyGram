@@ -7,7 +7,8 @@ struct MainApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                MainView(info: delegate)
+//                MainView(info: delegate)
+                Test()
             }
         }
     }

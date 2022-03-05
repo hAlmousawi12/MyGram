@@ -12,7 +12,7 @@ struct PostView: View {
     
     var post: Post
     var env: PostEnv
-    @State var isLiked = UserDefaults.standard.bool(forKey: "isLiked")
+    @State var isLiked = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -31,6 +31,7 @@ struct PostView: View {
             }
             
             Text(post.sendersComment)
+                .multilineTextAlignment(.leading)
             
             
             HStack {
@@ -45,10 +46,9 @@ struct PostView: View {
                     if !isLiked {
                         env.likePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes + 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage))
                     } else {
-                        env.likePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes - 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage))
+                        env.unlikePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes - 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage))
                     }
                     self.isLiked.toggle()
-                    UserDefaults.standard.set(isLiked, forKey: "isLiked")
                     env.loadItems()
                 }
                 HStack(spacing: 2) {
@@ -56,8 +56,6 @@ struct PostView: View {
                     Text("\(post.commentsNum)")
                         .font(.subheadline)
                 }
-                Spacer()
-                Image(systemName: "paperplane")
             }.font(.title2)
             
             
@@ -66,6 +64,7 @@ struct PostView: View {
         .background(Color.gray.opacity(0.5).blur(radius: 5))
         .shadow(radius: 10)
         .cornerRadius(10)
+        .padding(5)
     }
 }
 

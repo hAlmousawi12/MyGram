@@ -42,12 +42,12 @@ struct Home: View {
                 Divider()
                 
                 bottom
-            }.padding(5)
+            }.padding(10)
         }
         .navigationBarHidden(true)
         .onAppear {
             postEnv.loadItems()
-            postEnv.getUsername()
+            postEnv.getUser()
         }
     }
 }

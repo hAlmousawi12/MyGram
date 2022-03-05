@@ -17,7 +17,7 @@ class PostEnv: ObservableObject{
     @Published var user: User = User()
     var userid = Networking.getUserId() ?? ""
     
-    func getUsername() {
+    func getUser() {
         Networking.getSingleDocument("users/\(userid)") { user in
             self.user = user
         }
@@ -42,6 +42,21 @@ class PostEnv: ObservableObject{
             print("you have liked the post")
         } fail: { (error) in
             print("❌❌❌\(error?.localizedDescription)❌❌❌") 
+        }
+        
+        Networking.createItem(post, inCollection: "users/\(userid)/likedPosts", withDocumentId: "\(post.id)") {
+            print("you have liked the post")
+        } fail: { (error) in
+            print("❌❌❌\(error?.localizedDescription)❌❌❌")
+        }
+        
+    }
+    
+    func unlikePost(post: Post) {
+        Networking.createItem(post, inCollection: collectionName, withDocumentId: "\(post.id)") {
+            print("you have liked the post")
+        } fail: { (error) in
+            print("❌❌❌\(error?.localizedDescription)❌❌❌")
         }
     }
     

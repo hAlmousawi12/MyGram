@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9747459B268D087300CA3F3A /* AlertWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9747459A268D087300CA3F3A /* AlertWithTextField.swift */; };
+		9753469B27D2E39F00BF3F20 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9753469A27D2E39F00BF3F20 /* Test.swift */; };
 		97A5E98327D27DC600092140 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A5E98227D27DC600092140 /* PostView.swift */; };
 		97A5E98527D27EB400092140 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A5E98427D27EB400092140 /* extension.swift */; };
 		97B23C6527D00D190076C93E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97B23C6427D00D190076C93E /* GoogleService-Info.plist */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		9377AE6CE82235456148A2D9 /* Pods-FirebaseTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTemplate.release.xcconfig"; path = "Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		9747459A268D087300CA3F3A /* AlertWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWithTextField.swift; sourceTree = "<group>"; };
+		9753469A27D2E39F00BF3F20 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		97A5E98227D27DC600092140 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		97A5E98427D27EB400092140 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		97B23C6427D00D190076C93E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			children = (
 				D2C079A1259813E70053EDFD /* MainApp.swift */,
 				97B23C6427D00D190076C93E /* GoogleService-Info.plist */,
+				9753469A27D2E39F00BF3F20 /* Test.swift */,
 				D2C079A9259815BD0053EDFD /* Views */,
 				D2C079B0259816AA0053EDFD /* Environments */,
 				D2C2705324662CAA005E16A3 /* Models */,
@@ -536,6 +539,7 @@
 				97A5E98527D27EB400092140 /* extension.swift in Sources */,
 				D2C2704624662C63005E16A3 /* ImageUploader.swift in Sources */,
 				D2C079CC259822010053EDFD /* AddItem.swift in Sources */,
+				9753469B27D2E39F00BF3F20 /* Test.swift in Sources */,
 				D2C079B6259818A20053EDFD /* SignUp.swift in Sources */,
 				D2C2705224662C9A005E16A3 /* User.swift in Sources */,
 				D2C079C225981BDE0053EDFD /* AuthenticationView.swift in Sources */,

@@ -18,10 +18,6 @@ extension Home {
                 .bold()
                 .font(.title)
             Spacer()
-            
-            Image(systemName: "plus.message")
-                .font(.largeTitle)
-            
             SignOutButton(env: env)
         }
     }
@@ -31,13 +27,10 @@ extension Home {
         HStack {
             Image(systemName: "house.fill")
             Spacer()
-            Image(systemName: "magnifyingglass")
-            Spacer()
             NavigationLink(destination: NewPost(), label: {
                 Image(systemName: "plus.square")
+                    .foregroundColor(.white)
             })
-            Spacer()
-            Image(systemName: "heart")
             Spacer()
             Image(postEnv.user.username.lowercased())
                 .resizable()
@@ -46,6 +39,7 @@ extension Home {
                 .clipShape(Circle())
         }
         .font(.largeTitle)
+        .padding(5)
     }
     
 }
