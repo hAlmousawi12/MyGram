@@ -16,7 +16,8 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            if env.signedIn{
+            if env.signedIn {
+                
                 Home(env: env)
             }
             else{

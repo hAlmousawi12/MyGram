@@ -47,4 +47,26 @@ extension Home {
         .padding(5)
     }
     
+    var home: some View {
+        VStack {
+            header
+            
+            
+            Divider()
+            Spacer()
+            
+            
+            ScrollView(showsIndicators: false) {
+                
+                ForEach(0..<postEnv.posts.count) { i in
+                    PostView(post: postEnv.posts[i], i: i, env: postEnv)
+                }
+            }
+            Spacer()
+            Divider()
+            
+            bottom
+        }.padding(10)
+    }
+    
 }

@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct PostView: View {
     
     var post: Post
+    var i: Int
     var env: PostEnv
     @State var isLiked = false
     
@@ -19,7 +20,7 @@ struct PostView: View {
         VStack(alignment: .leading, spacing: 20) {
             
             HStack {
-                WebImage(url: URL(string: post.postImage))
+                WebImage(url: post.postImage)
                     .resizable()
                     .placeholder(Image("pfp"))
                     .scaledToFit()
@@ -46,18 +47,21 @@ struct PostView: View {
                 }.onTapGesture {
                     
                     if !isLiked {
-                        env.likePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes + 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage))
+                        env.likePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes + 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage, comments: post.comments))
                     } else {
-                        env.unlikePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes - 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage))
+                        env.unlikePost(post: Post(id: post.id,sender: post.sender, sendersComment: post.sendersComment, likes: (post.likes - 1), commentsNum: post.commentsNum, timee: post.timee, postImage: post.postImage, comments: post.comments))
                     }
                     self.isLiked.toggle()
                     env.loadItems()
                 }
-                HStack(spacing: 2) {
-                    Image(systemName: "message")
-                    Text("\(post.commentsNum)")
-                        .font(.subheadline)
+                NavigationLink(destination: Comments(post: post, i: i, env: env)) {
+                    HStack(spacing: 2) {
+                        Image(systemName: "message")
+                        Text("\(post.commentsNum)")
+                            .font(.subheadline)
+                    }.foregroundColor(.white)
                 }
+                
             }.font(.title2)
             
             
@@ -71,17 +75,17 @@ struct PostView: View {
 }
 
 
-struct PostView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            PostView(post: Post(sender: "h.almousawi12", sendersComment: "Testing", likes: 4231, commentsNum: 235, timee: "", postImage: ""), env: PostEnv())
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-                .padding()
-            PostView(post: Post(sender: "cwtheflash", sendersComment: "Testing", likes: 4231, commentsNum: 235, timee: "", postImage: ""), env: PostEnv())
-                .previewLayout(.sizeThatFits)
-                .padding()
-        }
-        
-    }
-}
+//struct PostView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            PostView(post: Post(sender: "h.almousawi12", sendersComment: "Testing", likes: 4231, commentsNum: 235, timee: "", postImage: "", comments: []), env: PostEnv())
+//                .preferredColorScheme(.dark)
+//                .previewLayout(.sizeThatFits)
+//                .padding()
+//            PostView(post: Post(sender: "cwtheflash", sendersComment: "Testing", likes: 4231, commentsNum: 235, timee: "", postImage: "", comments: []), env: PostEnv())
+//                .previewLayout(.sizeThatFits)
+//                .padding()
+//        }
+//
+//    }
+//}

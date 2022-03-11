@@ -26,7 +26,8 @@ struct NewPost: View {
                                            sendersComment: self.comment,
                                            likes: 0, commentsNum: 0,
                                            timee: String(Date().timeIntervalSince1970),
-                                           postImage: "\(postEnv.imageURL)"))
+                                           postImage: postEnv.imageURL!,
+                                           comments: []))
             } label: {
                 Text("Add Post")
                     .font(.title2)

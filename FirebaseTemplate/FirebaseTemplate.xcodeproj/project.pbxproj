@@ -10,6 +10,7 @@
 		971249DA27D309C1003D4212 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971249D927D309C1003D4212 /* Profile.swift */; };
 		971249DD27D30A3D003D4212 /* ImagePickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 971249DC27D30A3D003D4212 /* ImagePickerView */; };
 		971249E027D30F40003D4212 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 971249DF27D30F40003D4212 /* SDWebImageSwiftUI */; };
+		971249E327D3BCE3003D4212 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971249E227D3BCE3003D4212 /* Comments.swift */; };
 		9747459B268D087300CA3F3A /* AlertWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9747459A268D087300CA3F3A /* AlertWithTextField.swift */; };
 		9753469B27D2E39F00BF3F20 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9753469A27D2E39F00BF3F20 /* Test.swift */; };
 		97A5E98327D27DC600092140 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A5E98227D27DC600092140 /* PostView.swift */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		9377AE6CE82235456148A2D9 /* Pods-FirebaseTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTemplate.release.xcconfig"; path = "Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		971249D927D309C1003D4212 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		971249E227D3BCE3003D4212 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		9747459A268D087300CA3F3A /* AlertWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWithTextField.swift; sourceTree = "<group>"; };
 		9753469A27D2E39F00BF3F20 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		97A5E98227D27DC600092140 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		971249E127D3BCD5003D4212 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				971249E227D3BCE3003D4212 /* Comments.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		97A5E98027D27DA700092140 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C079BD259819FD0053EDFD /* MainView.swift */,
+				971249E127D3BCD5003D4212 /* Comments */,
 				971249D827D309B0003D4212 /* Profile */,
 				97A5E98127D27DB200092140 /* NewPost */,
 				97A5E98027D27DA700092140 /* Home */,
@@ -293,8 +304,8 @@
 		D2C26FD224662807005E16A3 /* FirebaseTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D2C079A1259813E70053EDFD /* MainApp.swift */,
 				97B23C6427D00D190076C93E /* GoogleService-Info.plist */,
+				D2C079A1259813E70053EDFD /* MainApp.swift */,
 				9753469A27D2E39F00BF3F20 /* Test.swift */,
 				D2C079A9259815BD0053EDFD /* Views */,
 				D2C079B0259816AA0053EDFD /* Environments */,
@@ -552,6 +563,7 @@
 				D2C2704B24662C68005E16A3 /* Optional.swift in Sources */,
 				97E7019E269B4FCC00CA288E /* LoginWithFacebook.swift in Sources */,
 				97A5E98327D27DC600092140 /* PostView.swift in Sources */,
+				971249E327D3BCE3003D4212 /* Comments.swift in Sources */,
 				97E701A0269B4FDB00CA288E /* LoginWithPhoneNumber.swift in Sources */,
 				D2C079A2259813E70053EDFD /* MainApp.swift in Sources */,
 				D2C2704924662C68005E16A3 /* Codable.swift in Sources */,

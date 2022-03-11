@@ -17,6 +17,11 @@ class PostEnv: ObservableObject{
     @Published var user: User = User()
     @Published var userid = Networking.getUserId() ?? ""
     @Published var imageURL: URL? = nil
+    @Published var isLoading = true
+    
+    init() {
+        loadItems()
+    }
     
     func getUser() {
         Networking.getSingleDocument("users/\(userid)") { user in
@@ -43,6 +48,7 @@ class PostEnv: ObservableObject{
     func loadItems(){
         Networking.getListOf(COLLECTION_NAME: collectionName) { (posts: [Post]) in
             self.posts = posts
+            self.isLoading = false
         }
     }
     

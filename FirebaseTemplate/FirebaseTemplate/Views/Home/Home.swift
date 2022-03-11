@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 struct SignOutButton: View{
     var env: FirebaseEnv
     var body: some View{
@@ -24,25 +23,19 @@ struct Home: View {
     var env: FirebaseEnv
     var body: some View {
         ZStack {
-            VStack {
-                header
-                
-                
-                Divider()
-                Spacer()
-                
-                
-                ScrollView(showsIndicators: false) {
-                    
-                    ForEach(postEnv.posts) { post in
-                        PostView(post: post, env: postEnv)
-                    }
+            if postEnv.isLoading {
+                VStack {
+                    Spacer()
+                    // add animation later
+                    Text("Loading...")
+                        .foregroundColor(.primary)
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                    Spacer()
                 }
-                Spacer()
-                Divider()
-                
-                bottom
-            }.padding(10)
+            } else {
+                home
+            }
         }
         .navigationBarHidden(true)
         .onAppear {
